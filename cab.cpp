@@ -59,14 +59,14 @@ void Cab::displayData()
         QString farePerKm = query.value(3).toString();
         QByteArray imageBlob = query.value(5).toByteArray();
 
-        // Convert the image blob to a QPixmap
+
         QImage image = QImage::fromData(imageBlob);
         QPixmap pixmap = QPixmap::fromImage(image);
         QLabel *imageLabel = new QLabel();
         imageLabel->setPixmap(pixmap.scaled(400, 300, Qt::KeepAspectRatio));
         imageLabel->setAlignment(Qt::AlignCenter);
 
-        // Cab information labels
+
         QVBoxLayout *infoLayout = new QVBoxLayout;
         QLabel *driverNameLabel = new QLabel("<b>Driver:</b> " + driverName);
         QLabel *contactLabel = new QLabel("<b>Contact:</b> " + contactNumber);
@@ -93,7 +93,7 @@ void Cab::displayData()
             "}"
             );
 
-        // Add widgets to the layout
+
         infoLayout->addWidget(driverNameLabel);
         infoLayout->addWidget(contactLabel);
         infoLayout->addWidget(vehicleTypeLabel);
@@ -149,9 +149,9 @@ void Cab::openCabDialog()
 void Cab::openRegisterDialog()
 {
     Register *registerDialog = new Register(this);
-    registerDialog->setAttribute(Qt::WA_DeleteOnClose); // Automatically delete when closed
+    registerDialog->setAttribute(Qt::WA_DeleteOnClose);
     this->hide();
-    registerDialog->show(); // Show the register dialog
+    registerDialog->show();
 }
 
 
@@ -167,11 +167,11 @@ void Cab::onPurchaseButtonClicked()
         QString fare_per_km = button->property("price").toString();
         QString username = MainWindow::username;
 
-        // Confirm booking with the user
+
         QMessageBox::information(this, "Booking Confirmation",
                                  "You have booked " + vehicleType + driverName + " at " + fare_per_km + " per km.");
 
-        // Insert booking details into the database
+
         QSqlQuery query;
         query.prepare("UPDATE users SET cab_drivername = :driver_name, "
                       "cab_vehicletype = :vehicle_type, cab_price = :fare_per_km "

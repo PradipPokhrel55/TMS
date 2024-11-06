@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 
     if (!connectToDatabase(dbPath)) {
         QMessageBox::critical(nullptr, "Database Error", "Failed to connect to the database.");
-        return -1;  // Exit application if database connection fails
+        return -1;
     }
 
 

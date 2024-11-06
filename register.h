@@ -16,7 +16,7 @@ class Register : public QDialog
     Q_OBJECT
 
 public:
-    explicit Register(QWidget *parent = nullptr); // Accept any QWidget as parent
+    explicit Register(QWidget *parent = nullptr);
 
 
     ~Register();
@@ -33,4 +33,4 @@ private:
 
 };
 
-#endif // REGISTER_H
+#endif

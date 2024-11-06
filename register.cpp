@@ -33,7 +33,7 @@ void Register::on_pushButton_register_clicked()
 {
     QString username = ui->username->text().trimmed();
     QString password = ui->password->text().trimmed();
-    QString repassword = ui->password_3->text().trimmed(); // Corrected variable name for re-entered password
+    QString repassword = ui->password_3->text().trimmed();
 
     if (username.isEmpty() || password.isEmpty() || repassword.isEmpty()) {
         QMessageBox::warning(this, "Registration Failed", "Please fill in all fields.");
@@ -48,7 +48,7 @@ void Register::on_pushButton_register_clicked()
     QSqlQuery query;
     query.prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
     query.bindValue(":username", username);
-    query.bindValue(":password", password); // Hash the password
+    query.bindValue(":password", password);
 
     if (!query.exec()) {
         QMessageBox::critical(this, "Registration Error", query.lastError().text());

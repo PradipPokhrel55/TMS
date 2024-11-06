@@ -2,7 +2,7 @@
 #define HOME_H
 
 #include <QWidget>
-#include <QDialog> // Change this to QDialog if not already
+#include <QDialog>
 #include "ui_home.h"
 
 namespace Ui {
@@ -32,4 +32,4 @@ private slots:
     void openProfileDialog();
 };
 
-#endif // HOME_H
+#endif

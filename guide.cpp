@@ -71,7 +71,7 @@ void Guide::displayData()
         QLabel *contactLabel = new QLabel("<b>Contact:</b> " + contact_number);
         QLabel *experienceLabel = new QLabel("<b>Experience:</b> " + experience_years + " years");
 
-        // Set up the image
+
         QLabel *imageLabel = new QLabel();
         if (!imageData.isEmpty()) {
             QPixmap pixmap;
@@ -84,7 +84,7 @@ void Guide::displayData()
         QPushButton *purchaseButton = new QPushButton("Hire Guide");
         purchaseButton->setProperty("guideName", name);
         purchaseButton->setProperty("hourlyRate", hourly_rate);
-        purchaseButton->setProperty("guideNumber", contact_number); // Add this line
+        purchaseButton->setProperty("guideNumber", contact_number);
         connect(purchaseButton, &QPushButton::clicked, this, &Guide::onPurchaseButtonClicked);
 
         purchaseButton->setStyleSheet(
@@ -165,12 +165,12 @@ void Guide::onPurchaseButtonClicked()
         QString guideName = button->property("guideName").toString();
         QString hourlyRate = button->property("hourlyRate").toString();
         QString guideNumber = button->property("guideNumber").toString();
-        QString username = MainWindow::username; // Retrieve the logged-in username
+        QString username = MainWindow::username;
 
-        // Confirm guide hiring with the user
+
         QMessageBox::information(this, "Hire Guide", "Hiring " + guideName + guideNumber +" at " + hourlyRate + " per hour.");
 
-        // Update guide hiring details for the current user in the database
+
         QSqlQuery query;
         query.prepare("UPDATE users SET guide_name = :guide_name, guide_price = :guide_price, guide_number = :guide_number "
                       "WHERE username = :username");
@@ -199,9 +199,9 @@ void Guide::on_pushButton_login_clicked()
 void Guide::openRegisterDialog()
 {
     Register *registerDialog = new Register(this);
-    registerDialog->setAttribute(Qt::WA_DeleteOnClose); // Automatically delete when closed
+    registerDialog->setAttribute(Qt::WA_DeleteOnClose);
     this->hide();
-    registerDialog->show(); // Show the register dialog
+    registerDialog->show();
 }
 
 void Guide:: openProfileDialog(){

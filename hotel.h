@@ -2,7 +2,7 @@
 #define HOTEL_H
 
 #include <QDialog>
-#include <QWidget> // Change this to QDialog if not already
+#include <QWidget>
 #include "ui_home.h"
 
 namespace Ui {
@@ -32,4 +32,4 @@ private slots:
     void openProfileDialog();
 };
 
-#endif // HOTEL_H
+#endif

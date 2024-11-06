@@ -33,6 +33,6 @@ private:
     Ui::MainWindow *ui;
     Home *homeWindow;
 
-    QString hashPassword(const QString &password); // Add if you want this function here
+    QString hashPassword(const QString &password);
 };
-#endif // MAINWINDOW_H
+#endif

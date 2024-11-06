@@ -59,14 +59,14 @@ void Hotel::displayData()
         QString contact_number = query.value(5).toString();
         QByteArray imageBlob = query.value(3).toByteArray();
 
-        // Convert the image blob to a QPixmap
+
         QImage image = QImage::fromData(imageBlob);
         QPixmap pixmap = QPixmap::fromImage(image);
         QLabel *imageLabel = new QLabel();
-        imageLabel->setPixmap(pixmap.scaled(400, 300, Qt::KeepAspectRatio));  // Larger size, keep aspect ratio
+        imageLabel->setPixmap(pixmap.scaled(400, 300, Qt::KeepAspectRatio));
         imageLabel->setAlignment(Qt::AlignCenter);
 
-        // Create a layout to hold hotel information and purchase button
+
         QVBoxLayout *infoLayout = new QVBoxLayout;
 
         QLabel *nameLabel = new QLabel("<b>Name:</b> " + name);
@@ -102,23 +102,23 @@ void Hotel::displayData()
         infoLayout->addWidget(priceLabel);
         infoLayout->addWidget(purchaseButton);
 
-        // Combine image and information in a horizontal layout for each hotel entry
+
         QHBoxLayout *hotelLayout = new QHBoxLayout;
         hotelLayout->addWidget(imageLabel);
         hotelLayout->addLayout(infoLayout);
 
-        // Add spacing and borders
+
         hotelLayout->setContentsMargins(5, 5, 5, 5);
         hotelLayout->setSpacing(15);
 
-        // Add the hotel entry layout to the main layout
+
         mainLayout->addLayout(hotelLayout);
     }
 
     containerWidget->setLayout(mainLayout);
     scrollArea->setWidget(containerWidget);
 
-    // Add the scroll area to the main layout of the group box
+
     QVBoxLayout *outerLayout = new QVBoxLayout(ui->groupBox);
     outerLayout->addWidget(scrollArea);
     ui->groupBox->setLayout(outerLayout);
@@ -159,12 +159,12 @@ void Hotel::onPurchaseButtonClicked()
         QString hotelName = button->property("hotelName").toString();
         QString hotelLocation = button->property("location").toString();
         QString hotelPrice = button->property("price").toString();
-        QString username = MainWindow::username; // Retrieve the logged-in username
+        QString username = MainWindow::username;
 
-        // Confirm hotel purchase with the user
+
         QMessageBox::information(this, "Purchase", "Purchasing " + hotelName + " located at " + hotelLocation + " at " + hotelPrice);
 
-        // Update hotel booking details for the current user in the database
+
         QSqlQuery query;
         query.prepare("UPDATE users SET hotel_name = :hotel_name, hotel_price = :hotel_price, hotel_location = :hotel_location "
                       "WHERE username = :username");
@@ -192,9 +192,9 @@ void Hotel::on_pushButton_login_clicked()
 void Hotel::openRegisterDialog()
 {
     Register *registerDialog = new Register(this);
-    registerDialog->setAttribute(Qt::WA_DeleteOnClose); // Automatically delete when closed
+    registerDialog->setAttribute(Qt::WA_DeleteOnClose);
     this->hide();
-    registerDialog->show(); // Show the register dialog
+    registerDialog->show();
 }
 
 void Hotel::openProfileDialog()

@@ -47,7 +47,7 @@ void Home::displayData()
         return;
     }
 
-    // Set up a scrollable area
+
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setWidgetResizable(true);
 
@@ -62,26 +62,26 @@ void Home::displayData()
         QByteArray imageBlob = query.value(4).toByteArray();
         QString facilities = query.value(5).toString();
 
-        // Convert the image blob to a QPixmap
+
         QImage image = QImage::fromData(imageBlob);
         QPixmap pixmap = QPixmap::fromImage(image);
         QLabel *imageLabel = new QLabel();
         imageLabel->setPixmap(pixmap.scaled(400, 300, Qt::KeepAspectRatio));
         imageLabel->setAlignment(Qt::AlignCenter);
 
-        // Create a dedicated widget for each package
-        QWidget *packageWidget = new QWidget();
-        QHBoxLayout *packageLayout = new QHBoxLayout(packageWidget);  // Use horizontal layout
 
-        // Create labels for package information
-        QVBoxLayout *infoLayout = new QVBoxLayout();  // Vertical layout for details
+        QWidget *packageWidget = new QWidget();
+        QHBoxLayout *packageLayout = new QHBoxLayout(packageWidget);
+
+
+        QVBoxLayout *infoLayout = new QVBoxLayout();
         QLabel *nameLabel = new QLabel("<b>Name:</b> " + name);
         QLabel *locationLabel = new QLabel("<b>Location:</b> " + location);
         QLabel *contactLabel = new QLabel("<b>Contact:</b> " + contact_number);
         QLabel *priceLabel = new QLabel("<b>Price per night:</b> " + price_per_night);
         QLabel *facilitiesLabel = new QLabel("<b>Facilities:</b> " + facilities);
 
-        // Create and style the purchase button
+
         QPushButton *purchaseButton = new QPushButton("Purchase");
         purchaseButton->setProperty("Name", name);
         purchaseButton->setProperty("price", price_per_night);
@@ -101,7 +101,7 @@ void Home::displayData()
             "}"
             );
 
-        // Add labels to the info layout
+
         infoLayout->addWidget(nameLabel);
         infoLayout->addWidget(locationLabel);
         infoLayout->addWidget(contactLabel);
@@ -109,11 +109,11 @@ void Home::displayData()
         infoLayout->addWidget(facilitiesLabel);
         infoLayout->addWidget(purchaseButton);
 
-        // Add the image and info layout to the package layout
+
         packageLayout->addWidget(imageLabel);
         packageLayout->addLayout(infoLayout);
 
-        // Add some spacing around each package widget
+
         mainLayout->addWidget(packageWidget);
         mainLayout->addSpacing(15);
     }
@@ -121,7 +121,7 @@ void Home::displayData()
     containerWidget->setLayout(mainLayout);
     scrollArea->setWidget(containerWidget);
 
-    // Add the scroll area to the group box
+
     QVBoxLayout *outerLayout = new QVBoxLayout(ui->groupBox);
     outerLayout->addWidget(scrollArea);
     ui->groupBox->setLayout(outerLayout);

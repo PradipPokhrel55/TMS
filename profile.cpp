@@ -21,7 +21,7 @@ Profile::Profile(QWidget *parent) : QDialog(parent), ui(new Ui::Profile)
     ui->setupUi(this);
     displayData();
 
-    // Connect buttons to their respective slots
+
     connect(ui->pushButton_6, &QPushButton::clicked, this, &Profile::on_pushButton_login_clicked);
     connect(ui->pushButton, &QPushButton::clicked, this, &Profile::openHomeDialog);
     connect(ui->pushButton_2, &QPushButton::clicked, this, &Profile::openHotelDialog);
@@ -41,7 +41,7 @@ Profile::~Profile()
 
 void Profile::displayData()
 {
-    // Clear existing layout to avoid duplication
+
     if (QLayout *oldLayout = ui->groupBox->layout()) {
         QLayoutItem *item;
         while ((item = oldLayout->takeAt(0)) != nullptr) {
@@ -52,7 +52,7 @@ void Profile::displayData()
     }
 
     QSqlQuery query;
-    QString username = MainWindow::username;  // Ensure this is set and accessible
+    QString username = MainWindow::username;
 
     query.prepare("SELECT * FROM users WHERE username = :username");
     query.bindValue(":username", username);
@@ -69,7 +69,7 @@ void Profile::displayData()
     QWidget *containerWidget = new QWidget();
     QVBoxLayout *mainLayout = new QVBoxLayout(containerWidget);
 
-    // Define the stylesheet for delete buttons
+
     QString deleteButtonStyle = R"(
         QPushButton {
             width: 100px;
@@ -115,10 +115,10 @@ void Profile::displayData()
 
 
 
-        // Username
+
         addSection(QString("<b>Username:</b> %1").arg(username));
 
-        // Hotel information
+
         if (!hotelName.isEmpty()) {
             QPushButton *hotelDeleteButton = new QPushButton("Delete");
             hotelDeleteButton->setProperty("entryId", id);
@@ -127,7 +127,7 @@ void Profile::displayData()
                            .arg(hotelName, hotelPrice, hotelLocation), hotelDeleteButton);
         }
 
-        // Cab information
+
         if (!cabDriverName.isEmpty()) {
             QPushButton *cabDeleteButton = new QPushButton("Delete");
             cabDeleteButton->setProperty("entryId", id);
@@ -136,7 +136,7 @@ void Profile::displayData()
                            .arg(cabDriverName, cabVehicleType, cabPrice), cabDeleteButton);
         }
 
-        // Guide information
+
         if (!guideName.isEmpty()) {
             QPushButton *guideDeleteButton = new QPushButton("Delete");
             guideDeleteButton->setProperty("entryId", id);
@@ -145,7 +145,7 @@ void Profile::displayData()
                            .arg(guideName, guideNumber, guidePrice), guideDeleteButton);
         }
 
-        // Package information
+
         if (!packageName.isEmpty()) {
             QPushButton *packageDeleteButton = new QPushButton("Delete");
             packageDeleteButton->setProperty("entryId", id);
@@ -154,18 +154,18 @@ void Profile::displayData()
                            .arg(packageName, packagePrice, packageLocation), packageDeleteButton);
         }
 
-        // Space between each record for clarity
+
         mainLayout->addSpacing(10);
     }
 
     containerWidget->setLayout(mainLayout);
     scrollArea->setWidget(containerWidget);
 
-    // Apply styles to scroll area and group box
+
     scrollArea->setStyleSheet("background-color: #f9f9f9; border: none;");
     containerWidget->setStyleSheet("background-color: #f9f9f9;");
 
-    // Add the scroll area to the group box with proper layout
+
     QVBoxLayout *outerLayout = new QVBoxLayout(ui->groupBox);
     outerLayout->addWidget(scrollArea);
     ui->groupBox->setLayout(outerLayout);

@@ -34,4 +34,4 @@ private slots:
     void onCabDeleteButtonClicked();
 };
 
-#endif // PROFILE_H
+#endif

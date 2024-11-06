@@ -2,7 +2,7 @@
 #define GUIDE_H
 
 #include <QDialog>
-#include <QWidget> // Change this to QDialog if not already
+#include <QWidget>
 #include "ui_home.h"
 
 namespace Ui {
@@ -32,4 +32,4 @@ private slots:
     void openProfileDialog();
 };
 
-#endif // GUIDE_H
+#endif

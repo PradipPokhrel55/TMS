@@ -31,7 +31,7 @@ MainWindow::~MainWindow()
 void MainWindow::openRegisterDialog()
 {
     Register *registerDialog = new Register(this);
-    registerDialog->setAttribute(Qt::WA_DeleteOnClose); // Automatically delete when closed
+    registerDialog->setAttribute(Qt::WA_DeleteOnClose);
 
     registerDialog->show();
 }
@@ -60,7 +60,7 @@ void MainWindow::on_pushButton_login_clicked()
 
     if (query.next()) {
         QString storedPassword = query.value(0).toString();
-        if (storedPassword == password) { // Compare with hashed password
+        if (storedPassword == password) {
             MainWindow::username = username;
             this->hide();
             if (!homeWindow) {
