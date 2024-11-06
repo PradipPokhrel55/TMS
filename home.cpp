@@ -174,11 +174,11 @@ void Home::onPurchaseButtonClicked()
         QString location = button->property("location").toString();
         QString username = MainWindow::username;
 
-        // Confirm booking with the user
+
         QMessageBox::information(this, "Booking Confirmation",
                                  "You have booked " + name + " at " + price + " per km.");
 
-        // Insert booking details into the database
+
         QSqlQuery query;
         query.prepare("UPDATE users SET package_name = :package_name, "
                       "package_price = :package_price, package_location = :package_location "
@@ -208,9 +208,9 @@ void Home::on_pushButton_login_clicked()
 void Home::openRegisterDialog()
 {
     Register *registerDialog = new Register(this);
-    registerDialog->setAttribute(Qt::WA_DeleteOnClose); // Automatically delete when closed
+    registerDialog->setAttribute(Qt::WA_DeleteOnClose);
     this->hide();
-    registerDialog->show(); // Show the register dialog
+    registerDialog->show();
 }
 
 void Home:: openProfileDialog(){

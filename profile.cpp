@@ -176,7 +176,7 @@ void Profile::displayData()
 
 
 
-// Delete functions
+
 
 void Profile::onHotelDeleteButtonClicked()
 {
@@ -254,7 +254,7 @@ void Profile::onHomeDeleteButtonClicked()
     }
 }
 
-// Navigation functions
+
 
 void Profile::openHomeDialog()
 {
@@ -287,7 +287,7 @@ void Profile::openCabDialog()
 void Profile::openRegisterDialog()
 {
     Register *registerDialog = new Register(this);
-    registerDialog->setAttribute(Qt::WA_DeleteOnClose); // Automatically delete when closed
+    registerDialog->setAttribute(Qt::WA_DeleteOnClose);
     this->hide();
     registerDialog->show();
 }
