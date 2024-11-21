@@ -75,7 +75,7 @@ void Hotel::displayData()
         QLabel *contact_numberlabel = new QLabel("<b>Contact_number:</b> " + contact_number);
         QLabel *priceLabel = new QLabel("<b>Rate per night:</b> " + price_per_night);
 
-        QPushButton *purchaseButton = new QPushButton("Purchase");
+        QPushButton *purchaseButton = new QPushButton("Book hotel");
         purchaseButton->setProperty("hotelName", name);
         purchaseButton->setProperty("location", location);
         purchaseButton->setProperty("price", price_per_night);

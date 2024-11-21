@@ -231,7 +231,7 @@ build travel_autogen/timestamp travel_autogen/mocs_compilation.cpp | ${cmake_nin
 #############################################
 # Phony custom command for CMakeFiles/travel_autogen_timestamp_deps
 
-build CMakeFiles/travel_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/travel_autogen_timestamp_deps: phony /Users/pradippokhrel/Qt/6.7.1/macos/lib/QtSql.framework/Versions/A/QtSql /Users/pradippokhrel/Qt/6.7.1/macos/./libexec/uic /Users/pradippokhrel/Qt/6.7.1/macos/./libexec/moc /Users/pradippokhrel/Qt/6.7.1/macos/lib/QtCore.framework/Versions/A/QtCore /Users/pradippokhrel/Qt/6.7.1/macos/lib/QtWidgets.framework/Versions/A/QtWidgets
+build CMakeFiles/travel_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/travel_autogen_timestamp_deps: phony /Users/pradippokhrel/Qt/6.7.1/macos/./libexec/uic /Users/pradippokhrel/Qt/6.7.1/macos/lib/QtSql.framework/Versions/A/QtSql /Users/pradippokhrel/Qt/6.7.1/macos/./libexec/moc /Users/pradippokhrel/Qt/6.7.1/macos/lib/QtCore.framework/Versions/A/QtCore /Users/pradippokhrel/Qt/6.7.1/macos/lib/QtWidgets.framework/Versions/A/QtWidgets
 
 
 #############################################
